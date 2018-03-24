@@ -6,6 +6,9 @@ import { AdminCreateComponent } from "./admin-create/admin-create.component";
 import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
 import { AdminLoginComponent } from "./admin-login/admin-login.component";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { AdminSubmitRequestComponent } from "./admin-submit-request/admin-submit-request.component";
+import { RequestViewOneComponent } from "./request-view-one/request-view-one.component";
+
 
 export const routes: Routes = [
 
@@ -34,6 +37,15 @@ export const routes: Routes = [
     path: 'admindashboard',
     component: AdminDashboardComponent
   },
+  {
+    path: 'adminsubmitrequest',
+    component: AdminSubmitRequestComponent
+  },
+  {
+    path: 'viewrequest/:id',
+    component: RequestViewOneComponent
+  },
+
   {
     path: 'adminlogin',
     component: AdminLoginComponent

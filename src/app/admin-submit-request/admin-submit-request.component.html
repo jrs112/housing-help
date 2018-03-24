@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card defaultCardStyle">
+        <h1 class="text-center">Create  Request</h1>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+             <label for="firstName">Recipient First Name</label>
+             <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName" placeholder="Enter your first name">
+           </div>
+           <div class="form-group">
+              <label for="lastName">Recipient Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" placeholder="Enter your last name">
+            </div>
+          <div class="form-group">
+             <label for="email">Email address</label>
+             <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Enter email">
+           </div>
+           <div class="form-group">
+             <label for="homeAddress">Home Address</label>
+             <input type="text" class="form-control" id="homeAddress" name="homeAddress" [(ngModel)]="homeAddress" placeholder="Enter home address">
+           </div>
+           <div class="form-group">
+             <label for="homeCity">City</label>
+             <input type="text" class="form-control" id="homeCity" name="homeCity" [(ngModel)]="homeCity" placeholder="Enter city">
+           </div>
+           <div class="form-group">
+             <label for="homeState">State</label>
+             <input type="text" class="form-control" id="homeState" name="homeState" [(ngModel)]="homeState" placeholder="Enter state">
+           </div>
+           <div class="form-group">
+             <label for="homeZip">Zip Code</label>
+             <input type="text" class="form-control" id="homeZip" name="homeZip" [(ngModel)]="homeZip" placeholder="Enter zip">
+           </div>
+           <div class="form-group">
+             <label for="housingLink">Housing Website Link</label>
+             <input type="text" class="form-control" id="housingLink" name="housingLink" [(ngModel)]="housingLink" placeholder="Enter web link">
+           </div>
+           <div class="form-group">
+              <label for="occupation">Occupation Of The Recipient</label>
+              <div>
+                <button *ngIf="showOccupations === false" class="btn btn-secondary btn-sm cursorStyle" (click)="showOccupations = !showOccupations">Show Occupation List</button>
+                <button *ngIf="showOccupations === true" class="btn btn-secondary btn-sm cursorStyle" (click)="showOccupations = !showOccupations">Hide Occupation List</button>
+              </div>
+              <ul *ngIf="showOccupations" class="list-group">
+                <li class="list-group-item cursorStyle" *ngFor="let occupation of occupationArr; let i = index" (click)="addOccupation(occupation)" [ngClass]="{'clickedClass': isActive(occupation) }">
+                  {{occupation}}
+                </li>
+              </ul>
+            </div>
+            <div class="form-group">
+              <label for="income">Household Annual Income</label>
+              <input type="number" (keyup)="getAmountNeeded(income, housingCost)" class="form-control" id="income" name="income" [(ngModel)]="income" placeholder="Enter income">
+            </div>
+            <div class="form-group">
+              <label for="housingCost">Household Annual Cost</label>
+              <input type="number" (keyup)="getAmountNeeded(income, housingCost)" class="form-control" id="housingCost" name="housingCost" [(ngModel)]="housingCost" placeholder="Enter housing cost">
+            </div>
+            <div class="form-group">
+              <label for="story">Recipient Story</label>
+              <textarea type="text" class="form-control" id="story" name="story" [(ngModel)]="story" placeholder="Enter story"></textarea>
+            </div>
+           <div class="text-center">
+             <button type="submit" class="btn btn-primary">Submit Request</button>
+             <div *ngIf="errMsg != ''" class="alert alert-danger">
+               {{errMsg}}
+             </div>
+           </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card defaultCardStyle text-center infoHead">
+        <h1>Request Info</h1>
+        <hr />
+        <h3>{{firstName}} {{lastName}}</h3>
+        <h3>{{email}}</h3>
+        <hr *ngIf="firstName != null && lastName != null && email != null" />
+        <h3>{{homeAddress}}</h3>
+        <h3>{{homeCity}} {{homeState}} {{homeZip}}</h3>
+        <a href="{{housingLink}}">{{housingLink}}</a>
+        <hr *ngIf="homeAddress != null && homeCity != null && homeState != null"/>
+        <h3 *ngIf="selectedOccupations.length > 0">Occupation</h3>
+        <ul>
+          <li class="text-left" *ngFor="let occ of selectedOccupations">
+            {{occ}}
+          </li>
+        </ul>
+        <hr *ngIf="selectedOccupations.lengt > 0" />
+        <h3 *ngIf="income != null">Household Income: ${{income}}</h3>
+        <h3 *ngIf="housingCost != null">Household Cost: ${{housingCost}}</h3>
+        <h3 *ngIf="amountNeeded != null">Amount Needed: ${{amountNeeded}}</h3>
+        <hr *ngIf="amountNeeded != null"/>
+        <p>
+          {{story}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

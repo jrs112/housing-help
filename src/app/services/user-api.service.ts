@@ -35,5 +35,9 @@ export class UserApiService {
     return this.http.get("/auth/userinfo");
   }
 
+  getDonors() {
+    return this.http.get("/auth/alldonors");
+  }
+
 
 }

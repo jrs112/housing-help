@@ -9,10 +9,13 @@ import { DonorCreateComponent } from './donor-create/donor-create.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DonorDashboardComponent } from './donor-dashboard/donor-dashboard.component';
 import { UserApiService } from "./services/user-api.service";
+import { RequestApiService } from "./services/request-api.service";
 import { AdminCreateComponent } from './admin-create/admin-create.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AdminSubmitRequestComponent } from './admin-submit-request/admin-submit-request.component';
+import { RequestViewOneComponent } from './request-view-one/request-view-one.component';
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     AdminCreateComponent,
     AdminDashboardComponent,
     AdminLoginComponent,
-    HomePageComponent
+    HomePageComponent,
+    AdminSubmitRequestComponent,
+    RequestViewOneComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     RouterModule.forRoot(routes)
 
   ],
-  providers: [UserApiService],
+  providers: [UserApiService, RequestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
