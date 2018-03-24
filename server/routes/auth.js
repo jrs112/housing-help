@@ -64,7 +64,7 @@ const passport = require("passport");
       });
 
       // This will get all user names in db
-      router.get("/allemployees", function(req, res) {
+      router.get("/alldonors", function(req, res) {
         console.log("Got here");
         User.find().exec(function(error, users) {
           // Log any errors
@@ -72,14 +72,13 @@ const passport = require("passport");
             console.log(error);
             res.json(error);
           } else {
-            var employeeArr = [];
+            var donorArr = [];
             for (var i = 0; i < users.length; i++) {
-              var employeeObj = {
-                employeeName: users[i].local.first_name + " " + users[i].local.last_name
-              };
-              employeeArr.push(employeeObj);
+              if (users[i].role == "donor") {
+                donorArr.push(users[i]);
+              }
             }
-            res.json(employeeArr);
+            res.json(donorArr);
           }
         });
       });
@@ -92,7 +91,7 @@ const passport = require("passport");
       router.post('/createadmin', passport.authenticate('admin-local-signup', {
           successRedirect : '/admindashboard', // redirect to the secure profile section
           failureRedirect : '/createadmin', // redirect back to the signup page if there is an error
-          
+
       }));
 
       router.post('/loginadmin', passport.authenticate('admin-local-login', {
