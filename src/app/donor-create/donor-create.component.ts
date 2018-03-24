@@ -10,6 +10,9 @@ import { Router } from "@angular/router";
 export class DonorCreateComponent implements OnInit {
 
   errMsg = "";
+  showOccupations = false;
+  occupationArr = ["Any Occupation", "Life, Physical, or Social Science", "Community and Social Service", "Education", "Arts, Sports, or Entertainment", "Healthcare", "Protective Service", "Food prep and serving", "Maintenence", "Office and Adminstrative Support", "Transportation", "Personal Care and Service", "Construction" ]
+  selectedOccupations = [];
 
   constructor(private userApiService: UserApiService, private router:Router) { }
 
@@ -23,6 +26,7 @@ export class DonorCreateComponent implements OnInit {
       return;
     }
     form.value.userRole = "donor";
+    form.value.occupation = this.selectedOccupations;
     this.userApiService.createUser(form.value)
     .subscribe(info => {
       console.log(info);
@@ -41,5 +45,25 @@ export class DonorCreateComponent implements OnInit {
         }
     );
   }
+
+  addOccupation(info) {
+    console.log(info);
+    for (var i = 0; i < this.selectedOccupations.length; i++) {
+      if (info == this.selectedOccupations[i]) {
+        this.selectedOccupations.splice(i, 1);
+        return;
+      }
+    }
+      this.selectedOccupations.push(info);
+  }
+
+  isActive(info) {
+  for (var i = 0; i < this.selectedOccupations.length; i++) {
+    if (info == this.selectedOccupations[i]) {
+      return true;
+    }
+  }
+    return false;
+  };
 
 }

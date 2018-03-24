@@ -5,3 +5,11 @@
   border-width: 2px;
   border-color: black;
 }
+
+.cursorStyle {
+  cursor: pointer;
+}
+
+.clickedClass {
+  background: orange;
+}

@@ -17,6 +17,44 @@
              <input type="email" class="form-control" id="email" name="email" ngModel aria-describedby="emailHelp" placeholder="Enter email">
            </div>
            <div class="form-group">
+              <label for="occupation">Occupation Preference Of The Recipient</label>
+              <div>
+                <button *ngIf="showOccupations === false" class="btn btn-secondary btn-sm cursorStyle" (click)="showOccupations = !showOccupations">Show Occupation List</button>
+                <button *ngIf="showOccupations === true" class="btn btn-secondary btn-sm cursorStyle" (click)="showOccupations = !showOccupations">Hide Occupation List</button>
+              </div>
+              <ul *ngIf="showOccupations" class="list-group">
+                <li class="list-group-item cursorStyle" *ngFor="let occupation of occupationArr; let i = index" (click)="addOccupation(occupation)" [ngClass]="{'clickedClass': isActive(occupation) }">
+                  {{occupation}}
+                </li>
+              </ul>
+            </div>
+            <div class="form-group">
+              <label for="money">Select Preferred Donation Amount</label>
+              <select type="text" id="money" class="form-control" name="money" ngModel>
+                <option value="100">
+                  $100
+                </option>
+                <option value="250">
+                  $250
+                </option>
+                <option value="500">
+                  $500
+                </option>
+                <option value="750">
+                  $750
+                </option>
+                <option value="1000">
+                  $1000
+                </option>
+                <option value="2500">
+                  $2500
+                </option>
+                <option value="5000">
+                  $5000+
+                </option>
+              </select>
+            </div>
+           <div class="form-group">
              <label for="password">Password</label>
              <input type="password" class="form-control" name="password" ngModel id="password" placeholder="Enter password">
            </div>
