@@ -17,3 +17,7 @@
 .infoHead {
   margin-top: 250px;
 }
+
+input::placeholder {
+  color: rgb(255,255,255);
+}

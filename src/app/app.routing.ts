@@ -52,7 +52,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'homepage',
+    redirectTo: 'homeassist',
     pathMatch: 'full'
   },
 
