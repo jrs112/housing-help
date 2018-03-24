@@ -18,7 +18,12 @@ var requestSchema = mongoose.Schema({
         housingCost: Number,
         amountNeeded: Number,
         housingLink: String,
-        story: String
+        story: String,
+        acceptedBy: {
+          firstName: String,
+          lastName: String,
+          email: String
+        }
 
 
 

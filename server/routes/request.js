@@ -37,6 +37,17 @@ router.get("/onerequest/:id", function(req, res) {
   });
 });
 
+router.put("/updaterequest/:id", function(req, res) {
+  var info = req.body;
+  console.log("here is the info");
+  console.log(info);
+  console.log(req.params.id);
+  Request.findByIdAndUpdate(req.params.id, {$set: info}, {new: true}, function(err, order) {
+    if (err) return handleError(err);
+    res.send(order);
+  });
+});
+
 
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
@@ -60,7 +71,10 @@ router.post("/send",function(req,res){
         res.end("error");
      }else{
             console.log("Message sent: " + response.message);
-            res.end("sent");
+            var msg = {
+              message: "sent"
+            }
+            res.json(msg);
          }
     });
 });
