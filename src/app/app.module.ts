@@ -13,6 +13,7 @@ import { RequestApiService } from "./services/request-api.service";
 import { AdminCreateComponent } from './admin-create/admin-create.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { AdminSubmitRequestComponent } from './admin-submit-request/admin-submit-request.component';
 import { RequestViewOneComponent } from './request-view-one/request-view-one.component';
 
@@ -26,6 +27,7 @@ import { RequestViewOneComponent } from './request-view-one/request-view-one.com
     AdminCreateComponent,
     AdminDashboardComponent,
     AdminLoginComponent,
+    HomePageComponent,
     AdminSubmitRequestComponent,
     RequestViewOneComponent
   ],

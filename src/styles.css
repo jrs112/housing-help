@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Vollkorn');
+
+/*body {
+  background-image: url("/assets/images/brandon-griggs-82205-unsplash.jpg");
+  font-family: 'Vollkorn', serif;
+}*/
+
+
+.text-center {
+  color: white;
+  font-size: 42px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.card, .defaultCardStyle[_ngcontent-c1]{
+  background: none!important;
+  border: none!important;
+}
+
+a:link, a:visited, a:hover, a:active{
+  color: #ffffff;
+}
+
+.btn-primary {
+  background-color: rgb(0, 83, 119)!important;
+  border: none!important;
+}
+
+#email, #password,#firstName, #lastName, #passwordTwo, #phoneNumber{
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+}
+
+label {
+  color: rgb(255, 255,255)
+}
+
+input::placeholder{
+  color: rgb(255,255,255)!important;
+}
