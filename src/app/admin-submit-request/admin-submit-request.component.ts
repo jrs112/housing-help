@@ -108,8 +108,8 @@ export class AdminSubmitRequestComponent implements OnInit {
           var emailObj = {
             to: emailArr[m],
             subject: "Affordable Housing Request",
-            html: "<h1>" + info.firstName + " " + info.lastName + "submitted a housing a funding request that matches your preferences</h1>" +
-                  "<h2>Check the request by going to this link <a href='http://localhost:8080/viewrequest/" + resInfo._id + "'>CLICK HERE</a>"
+            html: "<h1>" + info.firstName + " " + info.lastName + " submitted a housing a funding request that matches your preferences</h1>" +
+                  "<h2>Check the request by going to this link <a href='http://localhost:8080/viewrequest/" + resInfo._id + "'>http://localhost:8080/viewrequest/" + resInfo._id + "</a>"
           }
           this.requestApiService.sendEmail(emailObj)
           .subscribe(

@@ -1,3 +1,14 @@
-<p>
-  request-view-one works!
-</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="card defaultCardStyle text-center" >
+        <h1>{{requestInfo?.firstName}} {{requestInfo?.lastName}}</h1>
+        <h3>Annual Housing Cost: ${{requestInfo?.housingCost}}</h3>
+        <h3><a href="{{requestInfo?.housingLink}}">{{requestInfo?.housingLink}}</a></h3>
+        <h3>Requesting ${{requestInfo?.amountNeeded}}</h3>
+        <h3 *ngFor="let occupation of requestInfo?.occupation">{{occupation}}</h3>
+        <button class="btn btn-primary" (click)="acceptRequest()">Accept Request</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,6 +18,10 @@ export class RequestApiService {
     return this.http.post("/request/send", info);
   }
 
+  getRequest(id) {
+    return this.http.get("/request/onerequest/" + id);
+  }
+
 
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RequestApiService } from "../services/request-api.service";
 
 @Component({
   selector: 'app-request-view-one',
@@ -8,13 +9,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RequestViewOneComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private requestApiService: RequestApiService) { }
   requestId;
+  requestInfo;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.requestId = params['id'];
-      console.log(this.requestId);
+      this.requestApiService.getRequest(this.requestId)
+      .subscribe(
+        (info: any) => {
+          this.requestInfo = info[0];
+          console.log(this.requestInfo);
+        },
+        (error) => console.log(error)
+        );
     })
   }
 
