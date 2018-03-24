@@ -12,6 +12,7 @@ import { UserApiService } from "./services/user-api.service";
 import { AdminCreateComponent } from './admin-create/admin-create.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     DonorDashboardComponent,
     AdminCreateComponent,
     AdminDashboardComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
