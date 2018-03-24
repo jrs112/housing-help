@@ -92,13 +92,23 @@ export class AdminSubmitRequestComponent implements OnInit {
           for (var j = 0; j < donorInfo[i].occupation.length; j++) {
             for (var k = 0; k < info.occupation.length; k++) {
               if (info.occupation[k] == donorInfo[i].occupation[j]) {
-                emailArr.push(donorInfo[i].email);
+                var userObjOne = {
+                  email: donorInfo[i].email,
+                  firstName: donorInfo[i].firstName,
+                  lastName: donorInfo[i].lastName
+                }
+                emailArr.push(userObjOne);
               }
             }
           }
           var diffAmount = parseInt(donorInfo[i].money) - parseInt(info.amountNeeded);
           if (diffAmount > 0 ) {
-            emailArr.push(donorInfo[i].email);
+            var userObj = {
+              email: donorInfo[i].email,
+              firstName: donorInfo[i].firstName,
+              lastName: donorInfo[i].lastName
+            }
+            emailArr.push(userObj);
           }
         }
         emailArr = emailArr.filter(function(value, index, array) {
@@ -106,10 +116,10 @@ export class AdminSubmitRequestComponent implements OnInit {
         });
         for (var m = 0; m < emailArr.length; m++) {
           var emailObj = {
-            to: emailArr[m],
+            to: emailArr[m].email,
             subject: "Affordable Housing Request",
             html: "<h1>" + info.firstName + " " + info.lastName + " submitted a housing a funding request that matches your preferences</h1>" +
-                  "<h2>Check the request by going to this link <a href='http://localhost:8080/viewrequest/" + resInfo._id + "'>http://localhost:8080/viewrequest/" + resInfo._id + "</a>"
+                  "<h2>Check the request by going to this link <a href='http://localhost:8080/viewrequest/" + resInfo._id + "/" + emailArr[m].firstName + "/" + emailArr[m].lastName + "/" + emailArr[m].email + "'>http://localhost:8080/viewrequest/" + resInfo._id + "</a>"
           }
           this.requestApiService.sendEmail(emailObj)
           .subscribe(

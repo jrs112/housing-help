@@ -22,6 +22,9 @@ export class RequestApiService {
     return this.http.get("/request/onerequest/" + id);
   }
 
+  updateRequest(id) {
+    return this.http.put("/request/updaterequest/" + id._id, id);
+  }
 
 
 

@@ -8,6 +8,9 @@
         <h3>Requesting ${{requestInfo?.amountNeeded}}</h3>
         <h3 *ngFor="let occupation of requestInfo?.occupation">{{occupation}}</h3>
         <button class="btn btn-primary" (click)="acceptRequest()">Accept Request</button>
+        <div *ngIf="succMsg != ''" class="alet alert-success">
+          {{succMsg}}
+        </div>
       </div>
     </div>
   </div>

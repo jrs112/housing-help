@@ -42,7 +42,7 @@ export const routes: Routes = [
     component: AdminSubmitRequestComponent
   },
   {
-    path: 'viewrequest/:id',
+    path: 'viewrequest/:id/:first/:last/:email',
     component: RequestViewOneComponent
   },
 
