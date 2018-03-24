@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card defaultCardStyle">
+        <h1 class="text-center">Create Donor Account</h1>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+             <label for="firstName">First Name</label>
+             <input type="text" class="form-control" id="firstName" name="firstName" ngModel placeholder="Enter your first name">
+           </div>
+           <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" ngModel placeholder="Enter your last name">
+            </div>
+          <div class="form-group">
+             <label for="email">Email address</label>
+             <input type="email" class="form-control" id="email" name="email" ngModel aria-describedby="emailHelp" placeholder="Enter email">
+           </div>
+           <div class="form-group">
+             <label for="password">Password</label>
+             <input type="password" class="form-control" name="password" ngModel id="password" placeholder="Enter password">
+           </div>
+           <div class="form-group">
+             <label for="passwordTwo">Confirm Password</label>
+             <input type="password" class="form-control" name="passwordTwo" ngModel id="passwordTwo" placeholder="Password">
+           </div>
+           <div class="text-center">
+             <button type="submit" class="btn btn-primary">Create Account</button>
+             <div *ngIf="errMsg != ''" class="alert alert-danger">
+               {{errMsg}}
+             </div>
+           </div>
+           <a routerLink="/homeassist">Back to login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

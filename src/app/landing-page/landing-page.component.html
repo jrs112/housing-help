@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card defaultCardStyle">
+        <h1 class="text-center">Sign In</h1>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+             <label for="email">Email address</label>
+             <input type="email" class="form-control" id="email" name="email" ngModel aria-describedby="emailHelp" placeholder="Enter email">
+           </div>
+           <div class="form-group">
+             <label for="password">Password</label>
+             <input type="password" class="form-control" name="password" ngModel id="password" placeholder="Password">
+           </div>
+           <div class="text-center">
+             <button type="submit" class="btn btn-primary">Sign In</button>
+             <div class="alert alert-danger" *ngIf="errorMessage != ''">
+               {{errorMessage}}
+             </div>
+           </div>
+           <a routerLink="/donorsignup">Create Donor Account</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
